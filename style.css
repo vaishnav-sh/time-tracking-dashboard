@@ -1,0 +1,266 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    /* primary */
+    --blue: hsl(246, 80%, 60%);
+    --ligh-red: hsl(15, 100%, 70%);
+    --soft-blue:  hsl(195, 74%, 62%);
+    --light-red-two: hsl(348, 100%, 68%);
+    --limegreen: hsl(145, 58%, 55%);
+    --violet: hsl(264, 64%, 52%);
+    --soft-orange: hsl(43, 84%, 65%);
+
+    /* neutral */
+    --very-dark-blue: hsl(226, 43%, 10%);
+    --dark-blue: hsl(235, 46%, 20%);
+    --desaturated-blue: hsl(235, 45%, 61%);
+    --pale-blue: hsl(236, 100%, 87%);
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--very-dark-blue);
+    color: var(--pale-blue);
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.wrapper {
+    min-height: 92vh;
+    display: grid;
+    place-items: center;
+}
+
+.container {
+    padding: 4em 0;
+    width: min(90%, 1200px);
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: 1fr; */
+    gap: 5em;
+}
+
+/* MAIN */
+.main {
+    /* border: 1px solid green; */
+    background-color: var(--dark-blue);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.person-profile {
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    padding: 2em 1.5em;
+    border-radius: 14px;
+}
+
+.person-img {
+    border: 3px solid var(--pale-blue);
+    border-radius: 50%;
+    width: 65px;
+}
+
+.person-img img{
+    display: block;
+}
+
+.rfor {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.person-name {
+    margin-left: 0.875em;
+}
+
+.person-name .name {
+    font-size:1.5rem;
+    margin: 0;
+    color: white;
+}
+
+.timespan {
+    padding: 1.5em;
+}
+
+.timespan-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--pale-blue);
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.time-btn:hover,
+.time-btn:focus {
+    color: white;
+}
+
+/* DASHBOARD ITEMS */
+.dashboard-item {
+    background-color: var(--dark-blue);
+    border-radius: 14px;
+    padding: 2.25em 1.5em;
+    /* margin-top: 5em; */
+    position: relative;
+}
+
+.dashboard-item::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    padding: 0 1.5em;
+    top: -50px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.work::before {
+    background: var(--ligh-red) url('./images/icon-work.svg') no-repeat;
+    background-position: 95% 0;
+}
+
+.play::before {
+    background: var(--soft-blue) url('./images/icon-play.svg') no-repeat;
+    background-position: 95% 0;
+}
+
+.study::before {
+    background: var(--light-red-two) url('./images/icon-study.svg') no-repeat;
+    background-position: 95% 0;
+}
+
+.exercise::before {
+    background: var(--limegreen) url('./images/icon-exercise.svg') no-repeat;
+    background-position: 95% 0;
+}
+
+.social::before {
+    background: var(--violet) url('./images/icon-social.svg') no-repeat;
+    background-position: 95% 0;
+}
+
+.selfcare::before {
+    background: var(--soft-orange) url('./images/icon-self-care.svg') no-repeat;
+    background-position: 95% 0;
+}
+
+.activity-type,
+.activity-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activity-name {
+    font-weight: 500;
+    color: white;
+    text-transform: capitalize;
+    
+    margin: 0;
+}
+
+.ellipsis {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.activity-hours {
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0.2em 0 0 0;
+}
+
+.activity-prev-hours {
+    margin: 0.5em 0 0 0;
+}
+
+footer {
+    text-align: center;
+    color: var(--desaturated-blue);
+}
+
+.footer a {
+    color: var(--desaturated-blue);
+    
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+@media (min-width: 800px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 4rem 1rem;
+    }
+
+    .main {
+        grid-row: span 2;
+        overflow: visible;
+    }
+
+    .person-profile {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 7em;        
+        position: relative;
+    }
+
+    .person-profile::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 14px;
+        background: var(--blue);
+        padding: 0 1.5em;
+        top: -50px;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    .person-name {
+        margin: 1em 0 0 0;
+    }
+
+    .timespan {
+        height: 20%;
+    }
+    
+    .timespan-btns {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .time-btn + .time-btn {
+        margin-top: 1em;
+    }
+
+    .activity-time {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 1em;
+    }
+}
