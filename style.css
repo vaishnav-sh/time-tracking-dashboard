@@ -45,6 +45,8 @@ img {
     gap: 5em;
 }
 
+
+
 /* MAIN */
 .main {
     /* border: 1px solid green; */
@@ -104,8 +106,7 @@ img {
     font-weight: 500;
 }
 
-.time-btn:hover,
-.time-btn:focus {
+.time-btn-active {
     color: white;
 }
 
