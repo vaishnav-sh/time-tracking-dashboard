@@ -105,9 +105,9 @@ const data = [
 
 let currentMode = "daily";
 
-window.addEventListener('DOMContentLoaded', () => {
-   displayData(currentMode);
-});
+// window.addEventListener('DOMContentLoaded', () => {
+//    displayData(currentMode);
+// });
 
 function displayData(mode) {
   const dashItems = data.map(function(item) {
@@ -125,8 +125,8 @@ function displayData(mode) {
             </div>`;
   }).join("");
 
-  const container = document.querySelector('.container');
-  container.innerHTML += dashItems;
+  const itemContainer = document.querySelector('.items-container');
+  itemContainer.innerHTML = dashItems;
 }
 
 const modeBtns = document.querySelectorAll('.time-btn');
@@ -134,5 +134,13 @@ modeBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
     currentMode = e.currentTarget.innerText.toLowerCase();
     displayData(currentMode);
+
+    modeBtns.forEach(btn => {
+      if(currentMode !== btn.innerText.toLowerCase()) {
+        btn.classList.remove('time-btn-active')
+      } else {
+        btn.classList.add('time-btn-active')
+      }
+    })
   });
 });
